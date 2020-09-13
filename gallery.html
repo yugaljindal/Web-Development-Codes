@@ -1,0 +1,68 @@
+<Html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+	<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+		   <img id="image1" class="cropimg" src="sparrow.jpg"/>
+		</div>
+		<div class="col-md-3">
+		   <img id="image2" class="cropimg" src="horse.jpg"/>
+		</div>
+		<div class="col-md-3">
+		   <img id="image3" class="cropimg" src="lion.jpg"/>
+		</div>
+		<div class="col-md-3">
+		   <img id="image4" class="cropimg" src="dragon.png"/>
+		</div>
+	</div>
+	<div class="row">
+	<div class="col-md-10">
+	<button class="backward">Left</Button>
+	</div>
+	<div class="col-md-2">
+	<button class="forward">Right</Button>
+	</div>
+	</div>
+	  <div class="row">
+		<div>
+		   <img id="image5" src="horse.jpg"/>
+		</div>
+	  </div>
+	</div>
+</body>
+	<script type="text/javascript">
+	    var pause=false;
+		var count=0;
+		
+		$('#image5').click(function(){
+			pause=!pause;
+		});
+		$('.cropimg').click(function(){
+			$('#image5').attr('src',$(this).attr('src'));
+		});
+		
+		$('.forward').click(function(){
+			count= count+1;
+			if(count>4){count=1;}
+			$('#image'+count).click();
+		});
+		$('.backward').click(function(){
+			count= count-1;
+			if(count<1){count=4;}
+			$('#image'+count).click();
+		});
+		setInterval(function(){
+			if(pause==false){
+		   $(".forward").click();}
+		},1000);
+		
+		
+		
+	</script>
+	
+</html>

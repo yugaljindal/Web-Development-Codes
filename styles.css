@@ -1,0 +1,10 @@
+
+.magic:hover{
+	background:red;
+	color:white;
+}
+
+.crop{
+	height:50px;
+	width:50%;
+}
